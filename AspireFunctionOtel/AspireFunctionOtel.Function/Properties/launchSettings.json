@@ -2,7 +2,7 @@
   "profiles": {
     "AspireFunctionOtel.Function": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7091",
+      "commandLineArgs": "--port 7071",
       "launchBrowser": false
     }
   }
