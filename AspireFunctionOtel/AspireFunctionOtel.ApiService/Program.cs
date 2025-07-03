@@ -13,8 +13,11 @@ app.UseExceptionHandler();
 
 string[] summaries = ["Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"];
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/weatherforecast", (ILogger<Program> logger) =>
 {
+    logger.LogInformation("Weather forecast requested at {Time} via webapi, information level log", DateTime.Now);
+    logger.LogWarning("Weather forecast requested at {Time} via webapi, warning level log", DateTime.Now);
+
     var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (

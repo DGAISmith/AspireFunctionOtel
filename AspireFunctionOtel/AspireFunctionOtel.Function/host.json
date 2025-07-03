@@ -5,13 +5,21 @@
         "routePrefix": ""
       }
     },
+    "telemetryMode": "openTelemetry",
     "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            },
-            "enableLiveMetricsFilters": true
+      "logLevel": {
+        "default": "Warning",
+        "Host": "Warning",
+        "Function": "Warning",
+        "Host.Aggregator": "Warning"
+      },
+      "OpenTelemetry": {
+        "logLevel": {
+          "default": "Warning",
+          "Host": "Warning",
+          "Function": "Warning",
+          "Host.Aggregator": "Warning"
         }
+      }
     }
 }

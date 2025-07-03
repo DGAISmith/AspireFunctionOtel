@@ -19,7 +19,8 @@ public class Function1
     [Function("weatherforecast")]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
     {
-        _logger.LogInformation("C# HTTP trigger function processed a request.");
+        _logger.LogInformation("Weather forecast requested at {Time} via function http trigger, information level log", DateTime.Now);
+        _logger.LogWarning("Weather forecast requested at {Time} via function http trigger, warning level log", DateTime.Now);
 
         var forecast = Enumerable.Range(1, 5).Select(index =>
             new WeatherForecast
