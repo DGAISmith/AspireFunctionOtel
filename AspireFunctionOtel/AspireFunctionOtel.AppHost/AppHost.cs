@@ -9,4 +9,6 @@ builder.AddProject<Projects.AspireFunctionOtel_Web>("webfrontend")
     .WithReference(apiService)
     .WaitFor(apiService);
 
+builder.AddAzureFunctionsProject<Projects.AspireFunctionOtel_Function>("aspirefunctionotel-function");
+
 builder.Build().Run();
