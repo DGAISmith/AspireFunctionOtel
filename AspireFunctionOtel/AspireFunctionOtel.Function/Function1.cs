@@ -33,6 +33,18 @@ public class Function1
 
         return new OkObjectResult(forecast);
     }
+
+    [Function(nameof(RunQueueTrigger))]
+    public void RunQueueTrigger(
+        [ServiceBusTrigger("queue1", Connection = "service-bus")]
+        string queueMessage, FunctionContext context)
+    {
+        var logger = context.GetLogger(nameof(RunQueueTrigger));
+
+        logger.LogInformation("Queue trigger - information log - {message}", queueMessage);
+        logger.LogWarning("Queue trigger - warning log - {message}", queueMessage);
+    }
+
 }
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
